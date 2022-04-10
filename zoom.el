@@ -239,7 +239,8 @@ Argument IGNORED is ignored."
    ;; never attempt to zoom the minibuffer
    (window-minibuffer-p)
    ;; check against the major mode
-   (member major-mode zoom-ignored-major-modes)
+   t
+   ;; (member major-mode zoom-ignored-major-modes)
    ;; check against the buffer name
    (member (buffer-name) zoom-ignored-buffer-names)
    ;; check against the buffer name (using a regexp)
