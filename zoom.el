@@ -225,7 +225,7 @@ Argument IGNORED is ignored."
 
 (defun zoom--window-ignored-p ()
   "Check whether the selected window will be ignored or not."
-  (message "Buffer name ignored %s" (string-match regex (buffer-name)))
+  (message "Buffer name %s" (buffer-name))
   (message "Major-mode %s " major-mode)
   (message "Ignored regex %s" zoom-ignored-buffer-name-regexps)
   (message "Ignore major %s" (member (buffer-name)
