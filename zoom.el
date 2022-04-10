@@ -204,7 +204,7 @@ Argument IGNORED is ignored."
         ;; temporarily disable all (even external) hooks about window
         ;; configuration changes to try to avoid potential flickering since
         ;; `balance-windows' calls them
-        (window-configuration-change-hook nil)
+        ;;(window-configuration-change-hook nil)
         ;; make sure that other windows are resized nicely after resizing the
         ;; selected one
         (window-combination-resize t)
