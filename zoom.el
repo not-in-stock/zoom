@@ -198,9 +198,6 @@ Argument IGNORED is ignored."
 
 (defun zoom--update ()
   "Update the window layout in the current frame."
-  (message "U Buffer name %s" (buffer-name))
-  (message "U Major-mode %s " major-mode)
-  (message "U Ignored regex %s" zoom-ignored-buffer-name-regexps)
   (let (;; temporarily disables this mode during resize to avoid infinite
         ;; recursion (probably not needed thanks to the following)
         (zoom-mode nil)
@@ -227,11 +224,11 @@ Argument IGNORED is ignored."
   "Check whether the selected window will be ignored or not."
   (message " ")
   (message "Buffer name %s" (buffer-name))
-  (message "Major-mode %s " major-mode)
+  (message "Major-mode %s" major-mode)
+  (message "Ignored major modes %s" zoom-ignored-major-modes)
   (message "Ignored regex %s" zoom-ignored-buffer-name-regexps)
   (message "Ignore major %s" (member major-mode
                                      zoom-ignored-major-modes))
-  (message " ")
   (or
    ;; `one-window-p' does not work well with the completion buffer
    ;; when emacsclient is used
@@ -239,7 +236,7 @@ Argument IGNORED is ignored."
    ;; never attempt to zoom the minibuffer
    (window-minibuffer-p)
    ;; check against the major mode
-   (member major-mode zoom-ignored-major-modes)
+    (member major-mode zoom-ignored-major-modes)
    ;; check against the buffer name
    (member (buffer-name) zoom-ignored-buffer-names)
    ;; check against the buffer name (using a regexp)
