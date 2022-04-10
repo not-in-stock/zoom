@@ -225,11 +225,13 @@ Argument IGNORED is ignored."
 
 (defun zoom--window-ignored-p ()
   "Check whether the selected window will be ignored or not."
+  (message " ")
   (message "Buffer name %s" (buffer-name))
   (message "Major-mode %s " major-mode)
   (message "Ignored regex %s" zoom-ignored-buffer-name-regexps)
-  (message "Ignore major %s" (member (buffer-name)
-                                     zoom-ignored-buffer-names))
+  (message "Ignore major %s" (member major-mode
+                                     zoom-ignored-major-modes))
+  (message " ")
   (or
    ;; `one-window-p' does not work well with the completion buffer
    ;; when emacsclient is used
